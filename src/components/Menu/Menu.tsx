@@ -217,6 +217,15 @@ class Menu extends React.Component<Props, State> {
     if (prevProps.visible !== this.props.visible) {
       this.updateVisibility();
     }
+
+    console.log('test');
+    if (
+      React.Children.count(prevProps.children) !==
+      React.Children.count(this.props.children)
+    ) {
+      console.log('children length change');
+      this.measureMenuLayout();
+    }
   }
 
   componentWillUnmount() {
